@@ -60,7 +60,7 @@ bs_icon <- function(
   style_attr <- paste0(
     "height:", size, ";",
     "width:", size, ";",
-    "margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;",
+    "fill:currentColor;",
     htmltools::css(...)
   )
 
