@@ -1,6 +1,6 @@
 library(rvest)
 
-version <- "1.9.0"
+version <- "1.10.2"
 icon_info <- NULL
 
 withr::with_tempdir({
