@@ -24,7 +24,7 @@ expect_snapshot_html <- function(name, ...) {
 test_that("bs_icon() returns a SVG string and renders as HTML", {
 
   globe <- bs_icon("globe")
-  expect_snapshot(globe, cran = TRUE)
+  expect_snapshot(as.character(globe), cran = TRUE)
 
   rocket <- bs_icon(
     "rocket", size = "2rem",
@@ -33,7 +33,7 @@ test_that("bs_icon() returns a SVG string and renders as HTML", {
     a11y = "sem",
     border = "2px solid red"
   )
-  expect_snapshot(bs_icon("rocket", "2rem"), cran = TRUE)
+  expect_snapshot(as.character(rocket), cran = TRUE)
 
 
   expect_snapshot_html(
