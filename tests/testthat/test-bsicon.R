@@ -1,4 +1,8 @@
 library(bsicons)
+library(bslib)
+library(htmltools)
+
+bs_deps <- bs_theme_dependencies(bs_theme())
 
 # @param name a name for the snapshot
 # @param ... a collection of UI elements
@@ -14,7 +18,11 @@ expect_snapshot_html <- function(name, ...) {
   )
 
   withr::with_tempdir({
-    htmltools::save_html(bslib::page_fluid(...), "index.html")
+    html <- div(
+      style = "margin-left:16px; margin-top:8px",
+      bs_deps, ...
+    )
+    save_html(html, "index.html")
     processx::process$new("python3", c("-m", "http.server", "4000"))
     png <- webshot2::webshot("http://localhost:4000")
     expect_snapshot_file(png, name = name)
