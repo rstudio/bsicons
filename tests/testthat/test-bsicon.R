@@ -23,7 +23,7 @@ expect_snapshot_html <- function(name, ...) {
       bs_deps, ...
     )
     save_html(html, "index.html")
-    processx::process$new("python3", c("-m", "http.server", "4000"))
+    py <- processx::process$new("python3", c("-m", "http.server", "4000"))
     png <- webshot2::webshot("http://localhost:4000")
     expect_snapshot_file(png, name = name)
   })
