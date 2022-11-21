@@ -22,5 +22,6 @@ Suggests:
     testthat,
     withr,
     processx,
-    webshot2
+    webshot2,
+    bslib
 Config/testthat/edition: 3
