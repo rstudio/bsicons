@@ -1,3 +1,5 @@
 ^bsicons\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
+^\.gitignore$
+^\.github$

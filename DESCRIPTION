@@ -16,8 +16,6 @@ Depends:
     R (>= 2.10)
 Imports:
     htmltools
-Enhances:
-    bslib
 Suggests:
     testthat,
     withr,
