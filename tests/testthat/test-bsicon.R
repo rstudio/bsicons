@@ -8,7 +8,7 @@ bs_deps <- bs_theme_dependencies(bs_theme())
 # @param ... a collection of UI elements
 expect_snapshot_html <- function(name, ...) {
   # Only do browser based snapshotting on GHA mac
-  skip_if_not_on_gha_mac()
+  #skip_if_not_on_gha_mac()
 
   # I would love to use servr::httd() to serve up the file, but for some reason
   # that isn't working with webshot, so use python+processx instead
@@ -18,24 +18,24 @@ expect_snapshot_html <- function(name, ...) {
   )
 
   withr::with_tempdir({
-    html <- div(
-      style = "margin-left:16px; margin-top:8px",
-      bs_deps, ...
-    )
-    save_html(html, "index.html")
     py <- processx::process$new("python3", c("-m", "http.server", "4000"))
-    png <- webshot2::webshot("http://localhost:4000")
+    on.exit(py$finalize())
+
+    html <- div(id = "main_content", bs_deps, ...)
+    save_html(html, "index.html")
+
+    png <- webshot2::webshot("http://localhost:4000", selector = "#main_content")
     expect_snapshot_file(png, name = name)
   })
 }
 
 test_that("bs_icon() returns a SVG string and renders as HTML", {
 
-  globe <- bs_icon("globe")
+  globe <- bs_icon("globe", size = "5rem")
   expect_snapshot(as.character(globe), cran = TRUE)
 
   rocket <- bs_icon(
-    "rocket", size = "2rem",
+    "rocket", size = "7rem",
     class = "text-success mt-1",
     title = "A rocket ship",
     a11y = "sem",
@@ -46,6 +46,7 @@ test_that("bs_icon() returns a SVG string and renders as HTML", {
 
   expect_snapshot_html(
     name = "main-icon-test.png",
-    globe, rocket
+    globe, rocket,
+    bs_icon("0-circle-fill", size = "5rem", class = "text-primary")
   )
 })
