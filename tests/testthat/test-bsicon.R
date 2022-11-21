@@ -40,4 +40,6 @@ test_that("bs_icon() returns a SVG string and renders as HTML", {
     name = "main-icon-test",
     globe, rocket
   )
+
+  expect_true(FALSE)
 })
