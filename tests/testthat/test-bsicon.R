@@ -8,7 +8,7 @@ bs_deps <- bs_theme_dependencies(bs_theme())
 # @param ... a collection of UI elements
 expect_snapshot_html <- function(name, ...) {
   # Only do browser based snapshotting on GHA mac
-  #skip_if_not_on_gha_mac()
+  skip_if_not_on_gha_mac()
 
   # I would love to use servr::httd() to serve up the file, but for some reason
   # that isn't working with webshot, so use python+processx instead
