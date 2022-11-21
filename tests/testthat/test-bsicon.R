@@ -45,7 +45,7 @@ test_that("bs_icon() returns a SVG string and renders as HTML", {
 
 
   expect_snapshot_html(
-    name = "main-icon-test",
+    name = "main-icon-test.png",
     globe, rocket
   )
 
