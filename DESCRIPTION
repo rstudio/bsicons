@@ -1,5 +1,5 @@
 Package: bsicons
-Title: Easily Work with 'Bootstrap' icons
+Title: Easily Work with 'Bootstrap' Icons
 Version: 0.1
 Authors@R: c(
   person("Carson", "Sievert", role = c("cre", "aut"), email = "carson@rstudio.com", comment = c(ORCID = "0000-0002-4958-2844")),
