@@ -19,7 +19,6 @@ expect_snapshot_html <- function(name, ...) {
 
   withr::with_tempdir({
     py <- processx::process$new("python3", c("-m", "http.server", "4000"))
-    on.exit(py$finalize())
 
     html <- div(id = "main_content", bs_deps, ...)
     save_html(html, "index.html")
