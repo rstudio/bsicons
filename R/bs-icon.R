@@ -61,6 +61,8 @@ bs_icon <- function(
     "height:", size, ";",
     "width:", size, ";",
     "fill:currentColor;",
+    # Better default vertical positioning of icons in a inline context (inspired by fontawesome::fa())
+    "vertical-align:-0.125em;",
     htmltools::css(...)
   )
 
