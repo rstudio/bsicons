@@ -45,13 +45,19 @@ bs_icon <- function(
 ) {
 
   if (length(name) != 1) {
-    stop("The number of icons specified in `name` must be 1.", call. = FALSE)
+    rlang::abort("The number of icons specified in `name` must be 1.")
   }
 
   name <- sub("\\s+", "-", tolower(name))
   idx <- match(name, tolower(icon_info$name))
   if (is.na(idx)) {
-    stop("This Bootstrap icon ('", name, "') does not exist", call. = FALSE)
+    dists <- utils::adist(name, icon_info$name)
+    suggestions <- icon_info$name[order(dists)][1:5]
+    rlang::abort(c(
+      paste0("This Bootstrap icon '", name, "' does not exist."),
+      "i" = paste0("Did you mean one of the following: ", paste(suggestions, collapse = ", "), "?"),
+      "i" = paste0("Try searching for more ", cli::style_hyperlink("here", "https://icons.getbootstrap.com"), ".")
+    ))
   }
 
   svg_children <- icon_info$contents[idx]
