@@ -53,10 +53,10 @@ bs_icon <- function(
   if (is.na(idx)) {
     dists <- utils::adist(name, icon_info$name)
     suggestions <- icon_info$name[order(dists)][1:5]
-    rlang::abort(c(
-      paste0("This Bootstrap icon '", name, "' does not exist."),
-      "i" = paste0("Did you mean one of the following: ", paste(suggestions, collapse = ", "), "?"),
-      "i" = paste0("Try searching for more ", cli::style_hyperlink("here", "https://icons.getbootstrap.com"), ".")
+    cli::cli_abort(c(
+      "This Bootstrap icon {.val {name}} does not exist.",
+      "i" = "Did you mean one of the following: {.or {.val {suggestions}}}?",
+      "i" = "Try searching for the icon: {.url https://icons.getbootstrap.com}."
     ))
   }
 
