@@ -1,9 +1,9 @@
 Package: bsicons
 Title: Easily Work with 'Bootstrap' Icons
-Version: 0.1.0.9000
+Version: 0.1.1
 Authors@R: c(
-  person("Carson", "Sievert", role = c("cre", "aut"), email = "carson@rstudio.com", comment = c(ORCID = "0000-0002-4958-2844")),
-  person("RStudio", role = c("cph", "fnd")),
+  person("Carson", "Sievert", role = c("cre", "aut"), email = "carson@posit.co", comment = c(ORCID = "0000-0002-4958-2844")),
+  person("Posit Software, PBC", role = c("cph", "fnd")),
   person("Mark", "Otto", role = "cph", comment = "Bootstrap icons maintainer"))
 Description: Easily use 'Bootstrap' icons inside 'Shiny' apps and 'R Markdown' documents. More generally, icons can be inserted in any 'htmltools' document through inline 'SVG'.
 License: MIT + file LICENSE
