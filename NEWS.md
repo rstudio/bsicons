@@ -1,3 +1,5 @@
+# bsicons (development version)
+
 # bsicons 0.1.1
 
 * Improved default vertical alignment of icons in an inline context (#4).
