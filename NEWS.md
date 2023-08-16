@@ -1,5 +1,7 @@
 # bsicons (development version)
 
+* `bs_icon()` now defaults to `a11y="sem"` when `title` is provided, meaning that the title is shown on hover and announced by screen readers by default (#8).
+
 # bsicons 0.1.1
 
 * Improved default vertical alignment of icons in an inline context (#4).
