@@ -6,19 +6,17 @@
 #' @param size Any valid CSS unit defining both the height and width of the
 #'   icon.
 #' @param class Additional CSS classes to add to the `<svg>` element. Consider
-#'   providing Bootstrap 4+ utility classes (e.g., `text-success`) here to
+#'   providing Bootstrap 5+ utility classes (e.g., `text-success`) here to
 #'   stylize the icon (but also note that those utility classes will only work
-#'   when Bootstrap 4+ is on the page).
-#' @param title An option for populating the SVG `'title'` attribute, which
-#'   provides on-hover text for the icon. By default, no title text is given to
-#'   the icon. If `a11y == "semantic"` then title text will be automatically
-#'   given to the rendered icon, however, providing text here will override
-#'   that.
+#'   when Bootstrap 5+ is on the page).
+#' @param title If provided (highly recommended), `a11y` defaults to `"sem"`,
+#'   meaning the title is used for on-hover text and screen reader
+#'   announcements.
 #' @param a11y Cases that distinguish the role of the icon and inform which
 #'   accessibility attributes to be used. Icons can either be `"deco"`
 #'   (decorative, the default case), `"sem"` (semantic), `"none"` (no
 #'   accessibility features). The default, `"auto"`, resolves to `"sem"` if a
-#'   title is provided (and `"deco"` otherwise).
+#'   `title` is provided (and `"deco"` otherwise).
 #' @param ... additional CSS properties (e.g., `margin`, `position`, etc.)
 #'   placed on the `<svg>` tag.
 #'
