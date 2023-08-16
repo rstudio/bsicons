@@ -9,7 +9,7 @@ bs_icon(
   size = "1em",
   class = NULL,
   title = NULL,
-  a11y = c("deco", "sem", "none"),
+  a11y = c("auto", "deco", "sem", "none"),
   ...
 )
 }
@@ -34,8 +34,9 @@ that.}
 
 \item{a11y}{Cases that distinguish the role of the icon and inform which
 accessibility attributes to be used. Icons can either be \code{"deco"}
-(decorative, the default case) or \code{"sem"} (semantic). Using \code{"none"} will
-result in no accessibility features for the icon.}
+(decorative, the default case), \code{"sem"} (semantic), \code{"none"} (no
+accessibility features). The default, \code{"auto"}, resolves to \code{"sem"} if a
+title is provided (and \code{"deco"} otherwise).}
 
 \item{...}{additional CSS properties (e.g., \code{margin}, \code{position}, etc.)
 placed on the \verb{<svg>} tag.}
