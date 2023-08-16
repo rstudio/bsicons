@@ -9,7 +9,7 @@ bs_icon(
   size = "1em",
   class = NULL,
   title = NULL,
-  a11y = c("deco", "sem", "none"),
+  a11y = c("auto", "deco", "sem", "none"),
   ...
 )
 }
@@ -22,20 +22,19 @@ bs_icon(
 icon.}
 
 \item{class}{Additional CSS classes to add to the \verb{<svg>} element. Consider
-providing Bootstrap 4+ utility classes (e.g., \code{text-success}) here to
+providing Bootstrap 5+ utility classes (e.g., \code{text-success}) here to
 stylize the icon (but also note that those utility classes will only work
-when Bootstrap 4+ is on the page).}
+when Bootstrap 5+ is on the page).}
 
-\item{title}{An option for populating the SVG \code{'title'} attribute, which
-provides on-hover text for the icon. By default, no title text is given to
-the icon. If \code{a11y == "semantic"} then title text will be automatically
-given to the rendered icon, however, providing text here will override
-that.}
+\item{title}{If provided (highly recommended), \code{a11y} defaults to \code{"sem"},
+meaning the title is used for on-hover text and screen reader
+announcements.}
 
 \item{a11y}{Cases that distinguish the role of the icon and inform which
 accessibility attributes to be used. Icons can either be \code{"deco"}
-(decorative, the default case) or \code{"sem"} (semantic). Using \code{"none"} will
-result in no accessibility features for the icon.}
+(decorative, the default case), \code{"sem"} (semantic), \code{"none"} (no
+accessibility features). The default, \code{"auto"}, resolves to \code{"sem"} if a
+\code{title} is provided (and \code{"deco"} otherwise).}
 
 \item{...}{additional CSS properties (e.g., \code{margin}, \code{position}, etc.)
 placed on the \verb{<svg>} tag.}

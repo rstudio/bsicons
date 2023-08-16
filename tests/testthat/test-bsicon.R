@@ -37,7 +37,6 @@ test_that("bs_icon() returns a SVG string and renders as HTML", {
     "rocket", size = "7rem",
     class = "text-success mt-1",
     title = "A rocket ship",
-    a11y = "sem",
     border = "2px solid red"
   )
   expect_snapshot(as.character(rocket), cran = TRUE)
