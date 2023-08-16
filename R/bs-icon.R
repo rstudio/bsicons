@@ -16,8 +16,9 @@
 #'   that.
 #' @param a11y Cases that distinguish the role of the icon and inform which
 #'   accessibility attributes to be used. Icons can either be `"deco"`
-#'   (decorative, the default case) or `"sem"` (semantic). Using `"none"` will
-#'   result in no accessibility features for the icon.
+#'   (decorative, the default case), `"sem"` (semantic), `"none"` (no
+#'   accessibility features). The default, `"auto"`, resolves to `"sem"` if a
+#'   title is provided (and `"deco"` otherwise).
 #' @param ... additional CSS properties (e.g., `margin`, `position`, etc.)
 #'   placed on the `<svg>` tag.
 #'
@@ -40,7 +41,7 @@ bs_icon <- function(
   size = "1em",
   class = NULL,
   title = NULL,
-  a11y = c("deco", "sem", "none"),
+  a11y = c("auto", "deco", "sem", "none"),
   ...
 ) {
 
@@ -74,8 +75,12 @@ bs_icon <- function(
 
   # Generate accessibility attributes if either of
   # the "deco" or "sem" cases are chosen
-  a11y <- match.arg(a11y)
+  a11y <- rlang::arg_match(a11y)
   a11y_attrs <- ""
+
+  if (a11y == "auto") {
+    a11y <- if (is.null(title)) "deco" else "sem"
+  }
 
   if (a11y == "deco") {
     a11y_attrs <- 'aria-hidden="true" role="img" '
