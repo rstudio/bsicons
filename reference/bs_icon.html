@@ -58,7 +58,7 @@
 <span>  size <span class="op">=</span> <span class="st">"1em"</span>,</span>
 <span>  class <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  title <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  a11y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"deco"</span>, <span class="st">"sem"</span>, <span class="st">"none"</span><span class="op">)</span>,</span>
+<span>  a11y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"auto"</span>, <span class="st">"deco"</span>, <span class="st">"sem"</span>, <span class="st">"none"</span><span class="op">)</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -78,24 +78,23 @@ icon.</p></dd>
 
 <dt>class</dt>
 <dd><p>Additional CSS classes to add to the <code>&lt;svg&gt;</code> element. Consider
-providing Bootstrap 4+ utility classes (e.g., <code>text-success</code>) here to
+providing Bootstrap 5+ utility classes (e.g., <code>text-success</code>) here to
 stylize the icon (but also note that those utility classes will only work
-when Bootstrap 4+ is on the page).</p></dd>
+when Bootstrap 5+ is on the page).</p></dd>
 
 
 <dt>title</dt>
-<dd><p>An option for populating the SVG <code>'title'</code> attribute, which
-provides on-hover text for the icon. By default, no title text is given to
-the icon. If <code>a11y == "semantic"</code> then title text will be automatically
-given to the rendered icon, however, providing text here will override
-that.</p></dd>
+<dd><p>If provided (highly recommended), <code>a11y</code> defaults to <code>"sem"</code>,
+meaning the title is used for on-hover text and screen reader
+announcements.</p></dd>
 
 
 <dt>a11y</dt>
 <dd><p>Cases that distinguish the role of the icon and inform which
 accessibility attributes to be used. Icons can either be <code>"deco"</code>
-(decorative, the default case) or <code>"sem"</code> (semantic). Using <code>"none"</code> will
-result in no accessibility features for the icon.</p></dd>
+(decorative, the default case), <code>"sem"</code> (semantic), <code>"none"</code> (no
+accessibility features). The default, <code>"auto"</code>, resolves to <code>"sem"</code> if a
+<code>title</code> is provided (and <code>"deco"</code> otherwise).</p></dd>
 
 
 <dt>...</dt>
