@@ -1,6 +1,6 @@
 Package: bsicons
 Title: Easily Work with 'Bootstrap' Icons
-Version: 0.1.1.9000
+Version: 0.1.2
 Authors@R: c(
     person("Carson", "Sievert", , "carson@posit.co", role = c("cre", "aut"),
            comment = c(ORCID = "0000-0002-4958-2844")),
