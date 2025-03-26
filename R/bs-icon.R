@@ -50,8 +50,7 @@ bs_icon <- function(
   name <- sub("\\s+", "-", tolower(name))
   idx <- match(name, tolower(icon_info$name))
   if (is.na(idx)) {
-    dists <- utils::adist(name, icon_info$name)
-    suggestions <- icon_info$name[order(dists)][1:5]
+    suggestions <- get_similar_icons(name)
     cli::cli_abort(c(
       "This Bootstrap icon {.val {name}} does not exist.",
       "i" = "Did you mean one of the following: {.or {.val {suggestions}}}?",
