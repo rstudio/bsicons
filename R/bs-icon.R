@@ -47,7 +47,7 @@ bs_icon <- function(
     rlang::abort("The number of icons specified in `name` must be 1.")
   }
 
-  name <- sub("\\s+", "-", tolower(name))
+  name <- gsub("\\s+", "-", tolower(name))
   idx <- match(name, tolower(icon_info$name))
   if (is.na(idx)) {
     dists <- utils::adist(name, icon_info$name)
